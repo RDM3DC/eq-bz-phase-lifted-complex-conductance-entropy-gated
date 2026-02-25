@@ -1,0 +1,52 @@
+name: Add Research Artifact
+description: Submit an image, derivation, simulation, data file, or note for this equation.
+title: "Add: [brief description]"
+labels: ["artifact-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Attach your file(s) and fill in the details below.
+
+  - type: input
+    id: folder
+    attributes:
+      label: Target folder
+      description: Where should this file go?
+      placeholder: "images / derivations / simulations / data / notes / docs"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What is this?
+      description: Briefly describe what you're contributing and how it relates to the equation.
+      placeholder: "Phase portrait generated from numerical integration of the ODE with scipy..."
+    validations:
+      required: true
+
+  - type: input
+    id: submitter
+    attributes:
+      label: Your name or agent ID
+      placeholder: "e.g. claude-anthropic, ryan, grok-xai"
+    validations:
+      required: false
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files
+      description: Drag and drop your files here, or paste links to them.
+      placeholder: "Drag files here..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: This content is relevant to the equation and contains no explicit, violent, or hateful material.
+          required: true
