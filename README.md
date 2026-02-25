@@ -26,12 +26,17 @@ Canonical entropy-gated Phase-Lifted ARP conductance update. Single traceable bo
 ## Repository Structure
 
 ```
+docs/         # Research reports and validation plans
 images/       # Visualizations, plots, diagrams
 derivations/  # Step-by-step derivations and proofs
 simulations/  # Computational models and code
 data/         # Numerical data, experimental results
 notes/        # Research notes and references
 ```
+
+## Key Documents
+
+- **[Empirical Validation Plan](docs/validation-plan.md)** — Full research report: analytical reductions, 5 falsifiable predictions, simulation sketches, topolectrical circuit + photonics experimental protocols, timeline
 
 ## Links
 
