@@ -1,0 +1,31 @@
+{
+  "equation_id": "eq-bz-phase-lifted-complex-conductance-entropy-gated",
+  "generated_by": "simulations/run_reference_simulation.py",
+  "readout_type": "FHS/QWZ effective topological readout",
+  "baseline_fixed_rate": {
+    "dominant_chern_number": 1.0,
+    "nontrivial_fraction": 1.0,
+    "min_spectral_gap": 0.7011965700035899,
+    "damage_window_mean_gap": 1.0697780296073507,
+    "recovery_window_mean_gap": 1.6819600933852352,
+    "min_transition_margin": 0.269407548957044,
+    "max_effective_mass": 1.730592451042956,
+    "min_effective_mass": 1.1433548008246874
+  },
+  "entropy_gated_phase_lifted": {
+    "dominant_chern_number": 1.0,
+    "nontrivial_fraction": 1.0,
+    "min_spectral_gap": 0.813204948113456,
+    "damage_window_mean_gap": 1.2036298740310973,
+    "recovery_window_mean_gap": 1.824865108540538,
+    "min_transition_margin": 0.34678020072244786,
+    "max_effective_mass": 1.6532197992775521,
+    "min_effective_mass": 1.0679046873983893
+  },
+  "comparison": {
+    "damage_window_gap_shift": 0.13385184442374665,
+    "recovery_window_gap_shift": 0.14290501515530285,
+    "min_gap_shift": 0.11200837810986608,
+    "min_transition_margin_shift": 0.07737265176540387
+  }
+}

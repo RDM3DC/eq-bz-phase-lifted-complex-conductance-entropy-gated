@@ -1,0 +1,96 @@
+{
+  "equation_id": "eq-bz-phase-lifted-complex-conductance-entropy-gated",
+  "generated_by": "simulations/run_reference_simulation.py",
+  "scenarios": {
+    "fixed_rate_baseline": {
+      "config": {
+        "dt": 0.05,
+        "total_time": 18.0,
+        "alpha_0": 1.15,
+        "mu_0": 0.55,
+        "s_eq": 0.9,
+        "s_0": 0.9,
+        "s_c": 1.28,
+        "delta_s": 0.16,
+        "kappa": 0.085,
+        "gamma": 0.58,
+        "temperature": 1.0,
+        "current_base": 1.0,
+        "current_modulation": 0.18,
+        "slip_center": 6.0,
+        "slip_width": 0.22,
+        "slip_phase_amplitude": 10.0,
+        "epsilon_base": 0.18,
+        "epsilon_pulse": 0.52,
+        "bz_sample_count": 21,
+        "entropy_floor": 0.3,
+        "conductance_floor": 0.1,
+        "dissipation_gain": 0.08,
+        "use_entropy_gating": false
+      },
+      "metrics": {
+        "peak_magnitude": 1.7952690205603679,
+        "final_magnitude": 1.562636447166803,
+        "peak_entropy": 0.9690393830045102,
+        "min_alpha": 1.0521360982419268,
+        "max_mu": 0.55,
+        "total_slips": 8.0,
+        "max_single_step_slips": 3.0,
+        "mean_phase_error": 0.4553997947619767,
+        "damage_window_mean_magnitude": 1.4824156903236785,
+        "recovery_window_mean_magnitude": 1.4208418241181726,
+        "late_time_magnitude_std": 0.015343877197838437,
+        "max_epsilon_eff": 0.7000000098985996
+      }
+    },
+    "entropy_gated_phase_lifted": {
+      "config": {
+        "dt": 0.05,
+        "total_time": 18.0,
+        "alpha_0": 1.15,
+        "mu_0": 0.55,
+        "s_eq": 0.9,
+        "s_0": 0.9,
+        "s_c": 1.28,
+        "delta_s": 0.16,
+        "kappa": 0.085,
+        "gamma": 0.58,
+        "temperature": 1.0,
+        "current_base": 1.0,
+        "current_modulation": 0.18,
+        "slip_center": 6.0,
+        "slip_width": 0.22,
+        "slip_phase_amplitude": 10.0,
+        "epsilon_base": 0.18,
+        "epsilon_pulse": 0.52,
+        "bz_sample_count": 21,
+        "entropy_floor": 0.3,
+        "conductance_floor": 0.1,
+        "dissipation_gain": 0.08,
+        "use_entropy_gating": true
+      },
+      "metrics": {
+        "peak_magnitude": 1.7952690205603679,
+        "final_magnitude": 1.5618853362364624,
+        "peak_entropy": 0.9711968817547939,
+        "min_alpha": 1.0042393135536931,
+        "max_mu": 0.5935092055168186,
+        "total_slips": 8.0,
+        "max_single_step_slips": 3.0,
+        "mean_phase_error": 0.4450973534827925,
+        "damage_window_mean_magnitude": 1.3590935783857576,
+        "recovery_window_mean_magnitude": 1.3003747732895357,
+        "late_time_magnitude_std": 0.014404038781685502,
+        "max_epsilon_eff": 0.7000000098985996
+      }
+    }
+  },
+  "comparison": {
+    "peak_magnitude_shift": 0.0,
+    "peak_entropy_shift": 0.002157498750283704,
+    "damage_window_magnitude_shift": -0.12332211193792086,
+    "recovery_window_magnitude_shift": -0.12046705082863696,
+    "late_time_std_shift": -0.0009398384161529352,
+    "mean_phase_error_shift": -0.010302441279184171
+  }
+}

@@ -14,29 +14,69 @@ $$
 
 ## Description
 
-Canonical entropy-gated Phase-Lifted ARP conductance update. Single traceable boxed equation with 4 supporting definitions (all from Core + #3/#10). Entropy dynamics are 2nd-law safe; BZ ruler self-consistency feeds a uniform m_eff into QWZ preserving the single Chern jump.
+Canonical entropy-gated phase-lifted conductance update written as a stable complex first-order filter whose source amplitude is suppressed as entropy rises. The law couples three ingredients that are each experimentally meaningful:
+
+- a BZ-averaged resolved phase built from lifted current phases,
+- a complex conductance state that relaxes toward that lifted phase,
+- and an entropy channel that adds both dissipative and slip-count contributions.
+
+The point of this repository is not to claim a new topological invariant by itself. The point is to turn the boxed law into a falsifiable research object with closed-form reductions, a reproducible synthetic BZ reference simulation, committed artifacts, and regression tests.
+
+## What This Repository Now Contains
+
+- Closed-form solutions for the time-dependent and frozen-coefficient conductance update.
+- Proof notes for entropy gating monotonicity, passivity-compatible entropy production, and local stability.
+- A pure-Python synthetic BZ phase-lift simulator with explicit sheet jumps and entropy feedback.
+- Committed CSV, JSON, and SVG artifacts comparing the full entropy-gated law against a fixed-rate baseline.
+- An FHS/QWZ topological readout layer that converts the conductance trajectory into a time-resolved effective mass, spectral gap, and Chern-number diagnostic.
+- A small unittest suite covering the phase-lift rule, gate monotonicity, steady-state algebra, and reference behavior.
 
 ## Assumptions
 
-- \pi_a(k,t) from Core Eq. 10; weights in BZ average are uniform or occupation (user choice).
-- Chern number via FHS lattice method; Phase-Lift supplies continuous \theta_R history and slip detection only.
-- Entropy production uses Re(1/\tilde G) ≥ 0 for passive response (2nd-law safe).
-- \varepsilon_{\mathrm{eff}} inversion assumes the cosine form \pi_a=\pi(1+\varepsilon\cos\lambda) and |\varepsilon_{\mathrm{eff}}|<1.
+- `pi_a(k,t)` stays positive across the sampled BZ so the phase-lift threshold remains meaningful.
+- The phase-lift routine uses integer `2 pi` sheet jumps and treats `pi_a(k,t)` as the local admissible jump bound.
+- Entropy production uses `Re(1 / \tilde G) >= 0` as the passive-response branch; negative values are projected away in the reference simulator.
+- The BZ ruler inversion uses the cosine form `pi_a = pi (1 + epsilon cos lambda)` with `|epsilon| < 1`, so `epsilon_eff` stays real.
 
-## Repository Structure
+## Quick Start
 
+Run the committed reference simulation:
+
+```bash
+python simulations/run_reference_simulation.py
 ```
-docs/         # Research reports and validation plans
-images/       # Visualizations, plots, diagrams
-derivations/  # Step-by-step derivations and proofs
-simulations/  # Computational models and code
-data/         # Numerical data, experimental results
-notes/        # Research notes and references
+
+Run the tests:
+
+```bash
+python -m unittest discover -s tests
 ```
 
 ## Key Documents
 
-- **[Empirical Validation Plan](docs/validation-plan.md)** — Full research report: analytical reductions, 5 falsifiable predictions, simulation sketches, topolectrical circuit + photonics experimental protocols, timeline
+- [derivations/analytic-solution.md](derivations/analytic-solution.md) - integrating-factor solution, frozen-coefficient steady state, and phase alignment.
+- [derivations/entropy-gating-and-passivity.md](derivations/entropy-gating-and-passivity.md) - monotonicity, entropy positivity conditions, and local stability notes.
+- [docs/validation-plan.md](docs/validation-plan.md) - falsifiable predictions, staged validation program, and near-term hardware path.
+- [simulations/run_reference_simulation.py](simulations/run_reference_simulation.py) - reproducible CLI that regenerates the committed artifacts.
+- [data/reference_summary.json](data/reference_summary.json) - scenario-level metrics for the fixed-rate and entropy-gated reference runs.
+- [images/reference_trace.svg](images/reference_trace.svg) - conductance, entropy, and phase-lift observables for the reference run.
+- [data/topological_readout_summary.json](data/topological_readout_summary.json) - FHS/QWZ topological-gap and Chern-number summary for the baseline and gated trajectories.
+- [images/topological_readout.svg](images/topological_readout.svg) - effective mass, spectral gap, and topological readout comparison.
+
+## Current Readout
+
+The committed synthetic BZ reference now produces an explicit eight-slip burst with a maximum of three slips in a single step. Against the fixed-rate baseline, the entropy-gated law lowers the damage-window mean conductance magnitude by about `0.123` and the recovery-window mean by about `0.120`, while slightly improving mean phase alignment and reducing late-time variance. The new FHS readout keeps both trajectories in the same nontrivial phase with dominant Chern number `1`, but the entropy-gated path maintains a wider minimum spectral gap, raising it from about `0.701` to `0.813`, and improves the damage-window mean gap by about `0.134`.
+
+## Repository Structure
+
+```text
+docs/         validation notes and experimental framing
+images/       committed SVG artifacts
+derivations/  analytic reductions and proof notes
+simulations/  pure-Python reference model and artifact generator
+data/         committed CSV and JSON outputs
+notes/        scratch space for future research notes
+```
 
 ## Links
 
